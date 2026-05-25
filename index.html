@@ -1,35 +1,265 @@
 <!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kingdom Archives</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Verdana,sans-serif;
+background:#2b1d12;
+color:white;
+}
+
+header{
+background:#3b2615;
+padding:20px;
+border-bottom:4px solid #d8a55d;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:32px;
+font-weight:bold;
+color:#ffcf7d;
+}
+
+.menu{
+display:flex;
+gap:15px;
+}
+
+.menu a{
+text-decoration:none;
+color:white;
+background:#5b3b1a;
+padding:12px 18px;
+border:2px solid #d8a55d;
+border-radius:10px;
+}
+
+.hero{
+height:70vh;
+background:url('https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=2070&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:70px;
+color:#ffcf7d;
+text-shadow:4px 4px black;
+}
+
+.hero p{
+max-width:800px;
+font-size:22px;
+background:rgba(0,0,0,0.5);
+padding:20px;
+border-radius:10px;
+}
+
+.section{
+padding:70px 20px;
+max-width:1200px;
+margin:auto;
+}
+
+.section h2{
+font-size:42px;
+color:#ffcf7d;
+margin-bottom:30px;
+}
+
+.card{
+background:#3b2615;
+border:3px solid #d8a55d;
+border-radius:20px;
+overflow:hidden;
+}
+
+.card img{
+width:100%;
+height:300px;
+object-fit:cover;
+}
+
+.cardContent{
+padding:25px;
+}
+
+.cardContent h3{
+font-size:34px;
+color:#ffcf7d;
+}
+
+.cardContent p{
+line-height:1.7;
+margin:20px 0;
+}
+
+.button{
+display:inline-block;
+background:#5b3b1a;
+padding:14px 22px;
+border:2px solid #d8a55d;
+border-radius:10px;
+color:white;
+cursor:pointer;
+}
+
+.loginBox{
+background:#3b2615;
+border:3px solid #d8a55d;
+padding:35px;
+border-radius:20px;
+max-width:600px;
+margin:auto;
+text-align:center;
+}
+
+input{
+width:100%;
+padding:16px;
+font-size:18px;
+margin-bottom:20px;
+border-radius:10px;
+border:none;
+}
+
+.loginBox button{
+background:#5b3b1a;
+padding:14px 22px;
+border:2px solid #d8a55d;
+border-radius:10px;
+color:white;
+cursor:pointer;
+}
+
+#message{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+}
+
+footer{
+text-align:center;
+padding:30px;
+background:#24160d;
+margin-top:50px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+⚔ KINGDOM ARCHIVES
+</div>
+
+<div class="menu">
+<a href="#inicio">Inicio</a>
+<a href="#novelas">Novelas</a>
+<a href="#vip">VIP</a>
+<a href="#contacto">Contacto</a>
+</div>
+
+</header>
+
+<section class="hero" id="inicio">
+
+<h1>RETRO RPG VN</h1>
+
+<p>
+Una novela visual inspirada en JRPG clásicos,
+con rutas múltiples y contenido exclusivo.
+</p>
 
 </section>
 
-<section id="contacto">
+<section class="section" id="novelas">
 
-<h2 class="sectionTitle">CONTACTO</h2>
+<h2>NOVELAS</h2>
 
-<div class="contact">
+<div class="card">
 
-<p>
-📜 Patreon: Tu Patreon Aquí
-</p>
+<img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=2070&auto=format&fit=crop">
 
-<p>
-🎮 Discord: Tu Discord Aquí
-</p>
+<div class="cardContent">
+
+<h3>Kingdom Archives</h3>
 
 <p>
-📧 Email: tuemail@ejemplo.com
+Una aventura medieval donde cada decisión
+puede cambiar el destino del reino.
 </p>
 
-<p>
-⚔ Proyecto indie de novelas visuales estilo RPG retro.
-</p>
+<div class="button" onclick="location.href='#vip'">
+Desbloquear Novela
+</div>
+
+</div>
 
 </div>
 
 </section>
 
+<section class="section" id="vip">
+
+<h2>ACCESO VIP</h2>
+
+<div class="loginBox">
+
+<p>
+Introduce el código secreto para entrar.
+</p>
+
+<input type="password" id="codeInput" placeholder="Código">
+
+<button onclick="checkCode()">
+Entrar
+</button>
+
+<div id="message"></div>
+
+</div>
+
+</section>
+
+<section class="section" id="contacto">
+
+<h2>CONTACTO</h2>
+
+<p>
+Patreon: Tu Patreon
+</p>
+
+<p>
+Discord: Tu Discord
+</p>
+
+<p>
+Email: tuemail@ejemplo.com
+</p>
+
+</section>
+
 <footer>
-Retro RPG VN Portal • Kingdom Archives
+Retro RPG VN Portal
 </footer>
 
 <script>
@@ -38,36 +268,23 @@ const accessCode = "ASHEN2026";
 
 function checkCode(){
 
-const input = document.getElementById('codeInput').value;
-const message = document.getElementById('message');
+const input = document.getElementById("codeInput").value;
 
 if(input === accessCode){
 
-message.style.color = '#7CFF7C';
-message.innerText = 'ACCESO AUTORIZADO ⚔';
+document.getElementById("message").style.color = "#7cff7c";
 
-setTimeout(() => {
-window.location.href = 'novela.html';
-}, 1500);
+document.getElementById("message").innerText =
+"ACCESO AUTORIZADO ⚔";
 
 }else{
 
-message.style.color = '#ff7b7b';
-message.innerText = 'Código incorrecto';
+document.getElementById("message").style.color = "#ff7c7c";
+
+document.getElementById("message").innerText =
+"Código incorrecto";
 
 }
-
-}
-
-function scrollToVIP(){
-
-window.location.href = '#vip';
-
-}
-
-function scrollToNovels(){
-
-window.location.href = '#novelas';
 
 }
 
