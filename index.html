@@ -6,7 +6,75 @@
 <title>Kingdom Archives</title>
 
 <style>
+#scene{
+position:relative;
+width:100%;
+height:100vh;
+overflow:hidden;
+}
 
+#background{
+position:absolute;
+width:100%;
+height:100%;
+background-image:url('fondos/FONDO1.jpg');
+background-size:cover;
+background-position:center;
+z-index:1;
+}
+
+/* SPRITES */
+
+#tsuki{
+position:absolute;
+bottom:0;
+left:5%;
+height:90%;
+z-index:2;
+}
+
+#hana{
+position:absolute;
+bottom:0;
+right:5%;
+height:90%;
+z-index:2;
+}
+
+/* DIALOGO */
+
+#dialogueBox{
+position:absolute;
+bottom:0;
+width:100%;
+background:rgba(20,10,5,0.92);
+padding:25px;
+border-top:4px solid #ffcf7d;
+z-index:3;
+}
+
+#name{
+font-size:30px;
+font-weight:bold;
+color:#ffcf7d;
+margin-bottom:15px;
+}
+
+#text{
+font-size:24px;
+line-height:1.6;
+margin-bottom:20px;
+}
+
+button{
+background:#5b3b1a;
+border:3px solid #d8a55d;
+color:white;
+padding:15px 25px;
+font-size:18px;
+border-radius:10px;
+cursor:pointer;
+}
 body{
 margin:0;
 font-family:Verdana,sans-serif;
@@ -164,7 +232,34 @@ margin-top:50px;
 </head>
 
 <body>
+<div id="scene">
 
+<div id="background"></div>
+
+<img id="tsuki"
+src="sprites/TSUKI_feliz.png">
+
+<img id="hana"
+src="sprites/HANA_feliz.png">
+
+<div id="dialogueBox">
+
+<div id="name">
+TSUKI
+</div>
+
+<div id="text">
+El reino estuvo en silencio durante muchos años...
+hasta esta noche.
+</div>
+
+<button onclick="nextScene()">
+Continuar
+</button>
+
+</div>
+
+</div>
 <header>
 
 <div class="logo">
@@ -289,6 +384,39 @@ document.getElementById("message").innerText =
 }
 
 </script>
+<script>
 
+let scene = 0;
+
+function nextScene(){
+
+scene++;
+
+if(scene === 1){
+
+document.getElementById("name").innerText =
+"HANA";
+
+document.getElementById("text").innerText =
+"Algo extraño ocurrió cerca del castillo.";
+
+}
+
+if(scene === 2){
+
+document.getElementById("background").style.backgroundImage =
+"url('fondos/FONDO2.jpg')";
+
+document.getElementById("name").innerText =
+"TSUKI";
+
+document.getElementById("text").innerText =
+"Debemos ir antes del amanecer.";
+
+}
+
+}
+
+</script>
 </body>
 </html>
