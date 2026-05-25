@@ -12,24 +12,260 @@
 
 /* GENERAL */
 
-body{
+*{
 margin:0;
-font-family:Verdana,sans-serif;
-overflow:hidden;
-background:black;
-color:white;
+padding:0;
+box-sizing:border-box;
 }
 
-/* ESCENA */
+body{
+font-family:Verdana,sans-serif;
+background:#2b1d12;
+color:white;
+overflow-x:hidden;
+}
 
-#scene{
-position:relative;
+/* FONDO */
+
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background-image:url('fondos/FONDO1.jpg');
+background-size:cover;
+background-position:center;
+filter:brightness(0.35) sepia(0.5);
+z-index:-2;
+}
+
+body::after{
+content:"";
+position:fixed;
+inset:0;
+background:rgba(25,15,5,0.5);
+z-index:-1;
+}
+
+/* HEADER */
+
+header{
+background:rgba(40,20,5,0.95);
+border-bottom:4px solid #d8a55d;
+padding:20px;
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+max-width:1400px;
+margin:auto;
+}
+
+.logo{
+font-size:34px;
+font-weight:bold;
+color:#ffcf7d;
+text-shadow:3px 3px black;
+}
+
+.menu{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.menu a{
+text-decoration:none;
+color:white;
+background:#5b3b1a;
+padding:12px 20px;
+border:3px solid #d8a55d;
+border-radius:12px;
+transition:0.2s;
+font-weight:bold;
+}
+
+.menu a:hover{
+background:#8b5c2f;
+transform:translateY(-2px);
+}
+
+/* HERO */
+
+.hero{
+min-height:85vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px;
+}
+
+.hero h1{
+font-size:80px;
+color:#ffcf7d;
+text-shadow:5px 5px black;
+margin-bottom:25px;
+}
+
+.hero p{
+font-size:24px;
+line-height:1.8;
+max-width:950px;
+background:rgba(0,0,0,0.45);
+padding:25px;
+border-radius:16px;
+margin-bottom:35px;
+color:#f2e2c4;
+}
+
+.hero button{
+background:#5b3b1a;
+border:4px solid #d8a55d;
+color:white;
+padding:18px 30px;
+font-size:20px;
+border-radius:14px;
+cursor:pointer;
+font-weight:bold;
+transition:0.2s;
+}
+
+.hero button:hover{
+background:#8b5c2f;
+transform:scale(1.04);
+}
+
+/* SECCIONES */
+
+section{
+max-width:1300px;
+margin:auto;
+padding:80px 20px;
+}
+
+.sectionTitle{
+font-size:48px;
+color:#ffcf7d;
+margin-bottom:40px;
+text-shadow:3px 3px black;
+}
+
+/* CARD */
+
+.card{
+background:rgba(40,20,5,0.94);
+border:4px solid #d8a55d;
+border-radius:22px;
+overflow:hidden;
+box-shadow:0 0 25px rgba(0,0,0,0.6);
+}
+
+.card img{
 width:100%;
+height:420px;
+object-fit:cover;
+}
+
+.cardContent{
+padding:30px;
+}
+
+.cardContent h3{
+font-size:42px;
+color:#ffcf7d;
+margin-bottom:20px;
+}
+
+.cardContent p{
+font-size:20px;
+line-height:1.8;
+color:#ead8bb;
+margin-bottom:30px;
+}
+
+.cardContent button{
+background:#5b3b1a;
+border:3px solid #d8a55d;
+color:white;
+padding:16px 26px;
+font-size:18px;
+border-radius:12px;
+cursor:pointer;
+font-weight:bold;
+}
+
+/* LOGIN */
+
+#vip{
+display:none;
+}
+
+.loginBox{
+background:rgba(40,20,5,0.96);
+border:4px solid #d8a55d;
+border-radius:20px;
+padding:40px;
+max-width:700px;
+margin:auto;
+text-align:center;
+}
+
+.loginBox h2{
+font-size:40px;
+color:#ffcf7d;
+margin-bottom:20px;
+}
+
+.loginBox p{
+font-size:20px;
+line-height:1.8;
+margin-bottom:25px;
+color:#ead8bb;
+}
+
+.loginBox input{
+width:100%;
+padding:18px;
+font-size:18px;
+border-radius:12px;
+border:none;
+margin-bottom:20px;
+background:#ead8bb;
+}
+
+.loginBox button{
+background:#5b3b1a;
+border:3px solid #d8a55d;
+color:white;
+padding:16px 28px;
+font-size:18px;
+border-radius:12px;
+cursor:pointer;
+font-weight:bold;
+}
+
+#message{
+margin-top:20px;
+font-size:22px;
+font-weight:bold;
+}
+
+/* NOVELA */
+
+#novelContainer{
+display:none;
+position:relative;
 height:100vh;
 overflow:hidden;
 }
 
-/* FONDO */
+/* FONDO NOVELA */
 
 #background{
 position:absolute;
@@ -41,13 +277,13 @@ background-position:center;
 z-index:1;
 }
 
-/* OSCURECER UN POCO */
+/* OVERLAY */
 
 #overlay{
 position:absolute;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.25);
+background:rgba(0,0,0,0.2);
 z-index:2;
 }
 
@@ -58,24 +294,17 @@ position:absolute;
 bottom:0;
 height:90%;
 z-index:3;
-transition:0.3s;
 }
-
-/* POSICIONES */
 
 .left{
-left:3%;
-}
-
-.center{
-left:35%;
+left:4%;
 }
 
 .right{
-right:3%;
+right:4%;
 }
 
-/* CAJA DIALOGO */
+/* DIALOGO */
 
 #dialogueBox{
 position:absolute;
@@ -85,10 +314,7 @@ background:rgba(25,15,5,0.94);
 border-top:5px solid #d8a55d;
 padding:25px;
 z-index:5;
-box-sizing:border-box;
 }
-
-/* NOMBRE */
 
 #name{
 font-size:30px;
@@ -97,51 +323,64 @@ color:#ffcf7d;
 margin-bottom:15px;
 }
 
-/* TEXTO */
-
 #text{
 font-size:24px;
 line-height:1.7;
-margin-bottom:25px;
-max-width:1400px;
+margin-bottom:20px;
+max-width:1500px;
 }
-
-/* BOTON */
 
 #nextButton{
 background:#5b3b1a;
 border:3px solid #d8a55d;
 color:white;
-padding:15px 25px;
+padding:14px 24px;
 font-size:18px;
 border-radius:12px;
 cursor:pointer;
 font-weight:bold;
 }
 
-#nextButton:hover{
-background:#8b5c2f;
+/* CONTACTO */
+
+.contact{
+background:rgba(40,20,5,0.94);
+border:4px solid #d8a55d;
+border-radius:20px;
+padding:35px;
+font-size:20px;
+line-height:2;
+color:#ead8bb;
 }
 
-/* TITULO */
+/* FOOTER */
 
-#chapterTitle{
-position:absolute;
-top:20px;
-left:20px;
-background:rgba(20,10,5,0.8);
-padding:15px 25px;
-border:3px solid #d8a55d;
-border-radius:12px;
-font-size:28px;
-font-weight:bold;
-color:#ffcf7d;
-z-index:10;
+footer{
+text-align:center;
+padding:35px;
+font-size:16px;
+color:#d4b486;
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 
 @media(max-width:900px){
+
+.hero h1{
+font-size:52px;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.sectionTitle{
+font-size:36px;
+}
+
+.cardContent h3{
+font-size:32px;
+}
 
 .sprite{
 height:75%;
@@ -149,10 +388,6 @@ height:75%;
 
 #text{
 font-size:20px;
-}
-
-#name{
-font-size:26px;
 }
 
 }
@@ -163,21 +398,132 @@ font-size:26px;
 
 <body>
 
-<div id="scene">
+<!-- HEADER -->
 
-<!-- FONDO -->
+<header>
+
+<div class="navbar">
+
+<div class="logo">
+⚔ KINGDOM ARCHIVES
+</div>
+
+<div class="menu">
+<a href="#inicio">Inicio</a>
+<a href="#novelas">Novelas</a>
+<a href="#contacto">Contacto</a>
+</div>
+
+</div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="inicio">
+
+<h1>RETRO RPG VISUAL NOVEL</h1>
+
+<p>
+Explora historias inspiradas en JRPG clásicos,
+con rutas múltiples, personajes únicos y capítulos exclusivos.
+</p>
+
+<button onclick="goToNovels()">
+Entrar al Reino
+</button>
+
+</section>
+
+<!-- NOVELAS -->
+
+<section id="novelas">
+
+<h2 class="sectionTitle">
+NOVELAS
+</h2>
+
+<div class="card">
+
+<img src="fondos/FONDO1.jpg">
+
+<div class="cardContent">
+
+<h3>
+Kingdom Archives
+</h3>
+
+<p>
+Una novela visual medieval donde el destino del reino cambiará dependiendo de las decisiones del jugador.
+</p>
+
+<button onclick="openVIP()">
+Desbloquear Novela
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- LOGIN -->
+
+<section id="vip">
+
+<div class="loginBox">
+
+<h2>
+ACCESO VIP
+</h2>
+
+<p>
+Introduce el código secreto Patreon para desbloquear la novela visual.
+</p>
+
+<input
+type="password"
+id="codeInput"
+placeholder="Código de acceso"
+>
+
+<button onclick="checkCode()">
+Entrar
+</button>
+
+<div id="message"></div>
+
+</div>
+
+</section>
+
+<!-- CONTACTO -->
+
+<section id="contacto">
+
+<h2 class="sectionTitle">
+CONTACTO
+</h2>
+
+<div class="contact">
+
+<p>📜 Patreon: Tu Patreon</p>
+
+<p>🎮 Discord: Tu Discord</p>
+
+<p>📧 Email: tuemail@ejemplo.com</p>
+
+</div>
+
+</section>
+
+<!-- NOVELA -->
+
+<div id="novelContainer">
 
 <div id="background"></div>
 
 <div id="overlay"></div>
-
-<!-- TITULO -->
-
-<div id="chapterTitle">
-⚔ CAPÍTULO 1
-</div>
-
-<!-- SPRITES -->
 
 <img
 id="spriteLeft"
@@ -190,8 +536,6 @@ id="spriteRight"
 class="sprite right"
 src="sprites/HANA_feliz.png"
 >
-
-<!-- DIALOGO -->
 
 <div id="dialogueBox">
 
@@ -212,7 +556,93 @@ Continuar
 
 </div>
 
+<!-- FOOTER -->
+
+<footer>
+Retro RPG VN Portal • Kingdom Archives
+</footer>
+
 <script>
+
+/* CODIGO */
+
+const accessCode = "ASHEN2026";
+
+/* MOSTRAR LOGIN */
+
+function openVIP(){
+
+document.getElementById("vip").style.display =
+"block";
+
+window.location.href = "#vip";
+
+}
+
+/* ENTRAR */
+
+function checkCode(){
+
+const input =
+document.getElementById("codeInput").value;
+
+if(input === accessCode){
+
+document.getElementById("message").style.color =
+"#7cff7c";
+
+document.getElementById("message").innerText =
+"ACCESO AUTORIZADO ⚔";
+
+/* MOSTRAR NOVELA */
+
+setTimeout(() => {
+
+document.body.scrollTop = 0;
+document.documentElement.scrollTop = 0;
+
+document.getElementById("inicio").style.display =
+"none";
+
+document.getElementById("novelas").style.display =
+"none";
+
+document.getElementById("vip").style.display =
+"none";
+
+document.getElementById("contacto").style.display =
+"none";
+
+document.querySelector("header").style.display =
+"none";
+
+document.querySelector("footer").style.display =
+"none";
+
+document.getElementById("novelContainer").style.display =
+"block";
+
+}, 1200);
+
+}else{
+
+document.getElementById("message").style.color =
+"#ff7c7c";
+
+document.getElementById("message").innerText =
+"Código incorrecto";
+
+}
+
+}
+
+/* MENU */
+
+function goToNovels(){
+
+window.location.href = "#novelas";
+
+}
 
 /* ESCENAS */
 
@@ -220,69 +650,41 @@ let currentScene = 0;
 
 const scenes = [
 
-/* ESCENA 1 */
-
 {
-background: "fondos/FONDO1.jpg",
-
-leftSprite: "sprites/TSUKI_feliz.png",
-
-rightSprite: "sprites/HANA_feliz.png",
-
-name: "TSUKI",
-
-text:
-"El reino permaneció en silencio durante muchos años... hasta esta noche."
+background:"fondos/FONDO1.jpg",
+leftSprite:"sprites/TSUKI_feliz.png",
+rightSprite:"sprites/HANA_feliz.png",
+name:"TSUKI",
+text:"El reino permaneció en silencio durante muchos años... hasta esta noche."
 },
 
-/* ESCENA 2 */
-
 {
-background: "fondos/FONDO1.jpg",
-
-leftSprite: "sprites/TSUKI_feliz.png",
-
-rightSprite: "sprites/HANA_feliz.png",
-
-name: "HANA",
-
-text:
-"Algo extraño ocurrió cerca del castillo."
+background:"fondos/FONDO1.jpg",
+leftSprite:"sprites/TSUKI_feliz.png",
+rightSprite:"sprites/HANA_feliz.png",
+name:"HANA",
+text:"Algo extraño ocurrió cerca del castillo."
 },
 
-/* ESCENA 3 */
-
 {
-background: "fondos/FONDO2.jpg",
-
-leftSprite: "sprites/SHUUKO_feliz.png",
-
-rightSprite: "sprites/IKTAN_feliz.png",
-
-name: "SHUUKO",
-
-text:
-"Debemos movernos antes del amanecer."
+background:"fondos/FONDO2.jpg",
+leftSprite:"sprites/SHUUKO_feliz.png",
+rightSprite:"sprites/IKTAN_feliz.png",
+name:"SHUUKO",
+text:"Debemos movernos antes del amanecer."
 },
 
-/* ESCENA 4 */
-
 {
-background: "fondos/FONDO2.jpg",
-
-leftSprite: "sprites/IKTAN_feliz.png",
-
-rightSprite: "sprites/SHUUKO_feliz.png",
-
-name: "IKTAN",
-
-text:
-"Entonces el destino del reino finalmente cambiará."
+background:"fondos/FONDO2.jpg",
+leftSprite:"sprites/IKTAN_feliz.png",
+rightSprite:"sprites/SHUUKO_feliz.png",
+name:"IKTAN",
+text:"Entonces el destino del reino finalmente cambiará."
 }
 
 ];
 
-/* FUNCION */
+/* CAMBIAR ESCENA */
 
 function nextScene(){
 
@@ -296,20 +698,14 @@ currentScene = 0;
 
 const scene = scenes[currentScene];
 
-/* CAMBIAR FONDO */
-
 document.getElementById("background").style.backgroundImage =
 `url('${scene.background}')`;
-
-/* CAMBIAR SPRITES */
 
 document.getElementById("spriteLeft").src =
 scene.leftSprite;
 
 document.getElementById("spriteRight").src =
 scene.rightSprite;
-
-/* CAMBIAR TEXTO */
 
 document.getElementById("name").innerText =
 scene.name;
