@@ -1,522 +1,310 @@
-<!DOCTYPE html>
-<html lang="es">
+export default function FantasyVisualNovelPortal() {
+  const novels = [
+    {
+      title: "The Silent Kingdom",
+      genre: "Fantasy / Misterio",
+      progress: "65%",
+      image:
+        "https://images.unsplash.com/photo-1518709268805-4e9042af2176?q=80&w=1200&auto=format&fit=crop",
+    },
+    {
+      title: "Blood Chrysalis",
+      genre: "Terror / Fantasía",
+      progress: "42%",
+      image:
+        "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1200&auto=format&fit=crop",
+    },
+    {
+      title: "Echoes of Time",
+      genre: "Romance / Drama",
+      progress: "78%",
+      image:
+        "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop",
+    },
+  ];
 
-<head>
+  return (
+    <div className="min-h-screen bg-[#09060f] text-[#f3e8d0] overflow-x-hidden font-serif">
+      <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top,#6d3cff,transparent_40%)]" />
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <header className="sticky top-0 z-50 border-b border-yellow-700/40 bg-[#0d0817]/95 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-6">
+          <div className="flex items-center gap-3">
+            <div className="w-11 h-11 rounded-xl border border-yellow-600 bg-[#1a102d] flex items-center justify-center text-yellow-400 text-xl shadow-lg shadow-yellow-900/30">
+              📖
+            </div>
 
-<title>Kingdom Archives</title>
+            <div>
+              <h1 className="text-2xl font-bold tracking-wide text-yellow-300">
+                ChronoReader
+              </h1>
+              <p className="text-xs text-purple-300 tracking-[0.3em] uppercase">
+                Visual Novel Portal
+              </p>
+            </div>
+          </div>
 
-<style>
+          <nav className="hidden md:flex items-center gap-8 text-sm">
+            <a className="hover:text-yellow-300 transition">Inicio</a>
+            <a className="hover:text-yellow-300 transition">Novelas</a>
+            <a className="hover:text-yellow-300 transition">Noticias</a>
+            <a className="hover:text-yellow-300 transition">Comunidad</a>
+            <a className="hover:text-yellow-300 transition">Contacto</a>
+          </nav>
 
-/* GENERAL */
+          <div className="flex items-center gap-4">
+            <div className="hidden lg:flex bg-[#140d24] border border-yellow-700/40 rounded-xl overflow-hidden">
+              <input
+                placeholder="Buscar novelas..."
+                className="bg-transparent px-4 py-2 text-sm outline-none"
+              />
+              <button className="px-4 border-l border-yellow-700/30 hover:bg-yellow-700/10">
+                🔍
+              </button>
+            </div>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+            <div className="flex items-center gap-3 border border-yellow-700/40 bg-[#140d24] px-3 py-2 rounded-xl shadow-lg shadow-black/40">
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-yellow-600 to-orange-500 flex items-center justify-center text-black font-bold">
+                K
+              </div>
+
+              <div>
+                <p className="text-sm font-semibold">Lv.12 Archivista</p>
+                <div className="w-28 h-2 rounded-full bg-black/40 overflow-hidden mt-1">
+                  <div className="h-full w-[72%] bg-gradient-to-r from-yellow-400 to-orange-500" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main className="relative z-10">
+        <section className="max-w-7xl mx-auto px-6 pt-10 pb-16 grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
+          <div>
+            <p className="text-purple-300 uppercase tracking-[0.3em] text-sm mb-3">
+              Cada decisión importa
+            </p>
+
+            <h2 className="text-6xl leading-tight font-black mb-6">
+              Cada decisión es una nueva
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-purple-400">
+                {" "}historia
+              </span>
+              .
+            </h2>
+
+            <p className="text-lg text-[#d6c9b1] max-w-2xl leading-relaxed mb-10">
+              Explora regiones prohibidas, desbloquea rutas secretas,
+              construye relaciones y descubre finales únicos en una
+              experiencia inspirada en novelas visuales y JRPG clásicos.
+            </p>
+
+            <div className="flex flex-wrap gap-4">
+              <button className="px-8 py-4 rounded-2xl bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-bold shadow-xl hover:scale-105 transition">
+                Explorar novelas
+              </button>
+
+              <button className="px-8 py-4 rounded-2xl border border-purple-500 bg-purple-900/20 text-purple-200 hover:bg-purple-800/30 transition">
+                Continuar leyendo
+              </button>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-14">
+              {[
+                "Rutas múltiples",
+                "Finales únicos",
+                "Decisiones",
+                "Sistema de afinidad",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl border border-yellow-700/30 bg-[#130c21] p-5 text-center shadow-xl shadow-black/30"
+                >
+                  <div className="text-3xl mb-3">✦</div>
+                  <p className="text-sm text-yellow-100">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="absolute inset-0 bg-purple-500/20 blur-3xl rounded-full" />
+
+            <div className="relative overflow-hidden rounded-[32px] border border-yellow-700/40 shadow-2xl shadow-black/70 bg-[#130c21]">
+              <img
+                src="https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=1600&auto=format&fit=crop"
+                className="w-full h-[520px] object-cover opacity-80"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-[#120917] via-[#120917]/20 to-transparent" />
+
+              <div className="absolute bottom-0 left-0 right-0 p-8">
+                <div className="inline-block px-4 py-2 rounded-xl bg-yellow-600 text-black font-bold text-sm mb-4">
+                  DESTACADA
+                </div>
+
+                <h3 className="text-4xl font-black mb-2">
+                  The Silent Kingdom
+                </h3>
+
+                <p className="text-[#d6c9b1] mb-5">
+                  Una aventura oscura llena de secretos, romance y magia.
+                </p>
+
+                <div className="w-full h-3 bg-black/40 rounded-full overflow-hidden mb-5">
+                  <div className="h-full w-[65%] bg-gradient-to-r from-yellow-400 to-orange-500" />
+                </div>
+
+                <button className="w-full py-4 rounded-2xl bg-gradient-to-r from-purple-700 to-purple-500 hover:brightness-110 transition font-bold text-lg shadow-lg shadow-purple-900/40">
+                  Continuar
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="max-w-7xl mx-auto px-6 pb-20">
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <h2 className="text-4xl font-black mb-2">Todas las novelas</h2>
+              <p className="text-[#d6c9b1]">
+                Descubre historias, rutas y personajes.
+              </p>
+            </div>
+
+            <button className="px-6 py-3 rounded-xl border border-yellow-700/30 bg-[#130c21] hover:bg-[#1b1230] transition">
+              Ver catálogo completo
+            </button>
+          </div>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+            {novels.map((novel) => (
+              <div
+                key={novel.title}
+                className="group overflow-hidden rounded-[28px] border border-yellow-700/30 bg-[#120a1d] shadow-2xl shadow-black/40 hover:-translate-y-2 transition duration-300"
+              >
+                <div className="relative overflow-hidden">
+                  <img
+                    src={novel.image}
+                    className="h-72 w-full object-cover group-hover:scale-105 transition duration-500"
+                  />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#120917] via-transparent to-transparent" />
+                </div>
+
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-2xl font-bold">{novel.title}</h3>
+
+                    <span className="text-yellow-300 font-bold">
+                      {novel.progress}
+                    </span>
+                  </div>
+
+                  <p className="text-[#d6c9b1] mb-6">{novel.genre}</p>
+
+                  <div className="flex gap-3">
+                    <button className="flex-1 py-3 rounded-xl bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-bold hover:brightness-110 transition">
+                      Jugar
+                    </button>
+
+                    <button className="px-5 py-3 rounded-xl border border-purple-500/40 bg-purple-900/20 hover:bg-purple-800/30 transition">
+                      ♥
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="max-w-7xl mx-auto px-6 pb-24">
+          <div className="rounded-[36px] border border-yellow-700/30 overflow-hidden bg-[#120a1d] shadow-2xl shadow-black/50 grid lg:grid-cols-[0.85fr_1.15fr]">
+            <div className="relative min-h-[650px]">
+              <img
+                src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400&auto=format&fit=crop"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#120917]" />
+            </div>
+
+            <div className="p-10 lg:p-14 flex flex-col justify-center">
+              <div className="inline-flex w-fit px-4 py-2 rounded-xl bg-purple-700/30 border border-purple-400/40 text-purple-200 mb-6">
+                Capítulo 3 — La noche del juramento
+              </div>
+
+              <div className="rounded-[28px] border border-yellow-700/30 bg-[#0b0612]/80 p-8 shadow-inner shadow-black/50">
+                <p className="text-purple-300 text-xl font-bold mb-5">Kael</p>
+
+                <p className="text-2xl leading-relaxed text-[#f5ead6] mb-8">
+                  La ciudad duerme... pero yo no. Esta noche, todo cambiará.
+                </p>
+
+                <div className="flex flex-wrap gap-4">
+                  <button className="px-6 py-3 rounded-xl bg-gradient-to-r from-yellow-500 to-orange-500 text-black font-bold hover:brightness-110 transition">
+                    Continuar
+                  </button>
+
+                  <button className="px-6 py-3 rounded-xl border border-yellow-700/30 bg-[#140d24] hover:bg-[#1b1230] transition">
+                    Registro
+                  </button>
+
+                  <button className="px-6 py-3 rounded-xl border border-yellow-700/30 bg-[#140d24] hover:bg-[#1b1230] transition">
+                    Guardar
+                  </button>
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-4 mt-8">
+                {[
+                  "Iremos de inmediato.",
+                  "¿Qué ocultas realmente?",
+                  "Tal vez no sea tan importante.",
+                ].map((choice, i) => (
+                  <button
+                    key={choice}
+                    className="text-left rounded-2xl border border-purple-500/30 bg-purple-900/10 hover:bg-purple-700/20 transition p-5"
+                  >
+                    <p className="text-purple-300 font-bold mb-2">
+                      {i + 1}
+                    </p>
+                    <p>{choice}</p>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <footer className="border-t border-yellow-700/30 bg-[#0b0612]">
+          <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col lg:flex-row gap-8 items-center justify-between">
+            <div>
+              <h3 className="text-2xl font-bold text-yellow-300 mb-2">
+                ChronoReader
+              </h3>
+              <p className="text-[#d6c9b1]">
+                Plataforma inspirada en novelas visuales fantasy y JRPG.
+              </p>
+            </div>
+
+            <div className="flex gap-4 text-2xl">
+              <button className="w-12 h-12 rounded-xl border border-yellow-700/30 bg-[#130c21] hover:bg-[#1b1230] transition">
+                🎮
+              </button>
+
+              <button className="w-12 h-12 rounded-xl border border-yellow-700/30 bg-[#130c21] hover:bg-[#1b1230] transition">
+                💬
+              </button>
+
+              <button className="w-12 h-12 rounded-xl border border-yellow-700/30 bg-[#130c21] hover:bg-[#1b1230] transition">
+                🎵
+              </button>
+            </div>
+          </div>
+        </footer>
+      </main>
+    </div>
+  );
 }
-
-body{
-font-family:Verdana,sans-serif;
-background:#2b1d12;
-color:white;
-overflow-x:hidden;
-}
-
-/* FONDO */
-
-body::before{
-content:"";
-position:fixed;
-inset:0;
-background-image:url('fondos/FONDO1.jpg');
-background-size:cover;
-background-position:center;
-filter:brightness(0.35) sepia(0.55);
-z-index:-2;
-}
-
-body::after{
-content:"";
-position:fixed;
-inset:0;
-background:rgba(20,10,5,0.45);
-z-index:-1;
-}
-
-/* HEADER */
-
-header{
-background:rgba(35,20,5,0.95);
-border-bottom:4px solid #d8a55d;
-padding:20px;
-position:sticky;
-top:0;
-z-index:100;
-}
-
-.navbar{
-max-width:1400px;
-margin:auto;
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.logo{
-font-size:34px;
-font-weight:bold;
-color:#ffcf7d;
-text-shadow:3px 3px black;
-}
-
-.menu{
-display:flex;
-gap:15px;
-flex-wrap:wrap;
-}
-
-.menu a{
-text-decoration:none;
-color:white;
-background:#5b3b1a;
-padding:12px 18px;
-border:3px solid #d8a55d;
-border-radius:12px;
-font-weight:bold;
-transition:0.2s;
-}
-
-.menu a:hover{
-background:#8b5c2f;
-transform:translateY(-2px);
-}
-
-/* HERO */
-
-.hero{
-min-height:85vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:40px;
-}
-
-.hero h1{
-font-size:78px;
-color:#ffcf7d;
-text-shadow:5px 5px black;
-margin-bottom:25px;
-}
-
-.hero p{
-font-size:24px;
-line-height:1.8;
-max-width:900px;
-background:rgba(0,0,0,0.45);
-padding:25px;
-border-radius:18px;
-color:#f2e2c4;
-margin-bottom:35px;
-}
-
-.hero button{
-background:#5b3b1a;
-border:4px solid #d8a55d;
-color:white;
-padding:18px 30px;
-font-size:20px;
-border-radius:14px;
-cursor:pointer;
-font-weight:bold;
-transition:0.2s;
-}
-
-.hero button:hover{
-background:#8b5c2f;
-transform:scale(1.05);
-}
-
-/* SECCIONES */
-
-section{
-max-width:1300px;
-margin:auto;
-padding:80px 20px;
-}
-
-.sectionTitle{
-font-size:48px;
-color:#ffcf7d;
-margin-bottom:40px;
-text-shadow:3px 3px black;
-}
-
-/* CARD */
-
-.card{
-background:rgba(35,20,5,0.95);
-border:4px solid #d8a55d;
-border-radius:24px;
-overflow:hidden;
-box-shadow:0 0 25px rgba(0,0,0,0.6);
-}
-
-.card img{
-width:100%;
-height:420px;
-object-fit:cover;
-}
-
-.cardContent{
-padding:30px;
-}
-
-.cardContent h3{
-font-size:42px;
-color:#ffcf7d;
-margin-bottom:20px;
-}
-
-.cardContent p{
-font-size:20px;
-line-height:1.8;
-color:#ead8bb;
-margin-bottom:30px;
-}
-
-.cardContent button{
-background:#5b3b1a;
-border:3px solid #d8a55d;
-color:white;
-padding:16px 26px;
-font-size:18px;
-border-radius:12px;
-cursor:pointer;
-font-weight:bold;
-transition:0.2s;
-}
-
-.cardContent button:hover{
-background:#8b5c2f;
-}
-
-/* LOGIN */
-
-#vip{
-display:none;
-}
-
-.loginBox{
-background:rgba(35,20,5,0.97);
-border:4px solid #d8a55d;
-border-radius:22px;
-padding:40px;
-max-width:700px;
-margin:auto;
-text-align:center;
-}
-
-.loginBox h2{
-font-size:42px;
-color:#ffcf7d;
-margin-bottom:20px;
-}
-
-.loginBox p{
-font-size:20px;
-line-height:1.8;
-color:#ead8bb;
-margin-bottom:25px;
-}
-
-.loginBox input{
-width:100%;
-padding:18px;
-font-size:18px;
-border:none;
-border-radius:12px;
-margin-bottom:20px;
-background:#ead8bb;
-}
-
-.loginBox button{
-background:#5b3b1a;
-border:3px solid #d8a55d;
-color:white;
-padding:16px 28px;
-font-size:18px;
-border-radius:12px;
-cursor:pointer;
-font-weight:bold;
-}
-
-#message{
-margin-top:20px;
-font-size:22px;
-font-weight:bold;
-}
-
-/* CONTACTO */
-
-.contact{
-background:rgba(35,20,5,0.95);
-border:4px solid #d8a55d;
-border-radius:22px;
-padding:35px;
-font-size:20px;
-line-height:2;
-color:#ead8bb;
-}
-
-/* FOOTER */
-
-footer{
-text-align:center;
-padding:35px;
-font-size:16px;
-color:#d3b284;
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.hero h1{
-font-size:52px;
-}
-
-.hero p{
-font-size:18px;
-}
-
-.sectionTitle{
-font-size:36px;
-}
-
-.cardContent h3{
-font-size:32px;
-}
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<!-- HEADER -->
-
-<header>
-
-<div class="navbar">
-
-<div class="logo">
-⚔ KINGDOM ARCHIVES
-</div>
-
-<div class="menu">
-
-<a href="#inicio">
-Inicio
-</a>
-
-<a href="#novelas">
-Novelas
-</a>
-
-<a href="#contacto">
-Contacto
-</a>
-
-</div>
-
-</div>
-
-</header>
-
-<!-- HERO -->
-
-<section class="hero" id="inicio">
-
-<h1>
-RETRO RPG VISUAL NOVEL
-</h1>
-
-<p>
-Explora historias inspiradas en JRPG clásicos,
-con rutas múltiples, personajes únicos
-y capítulos exclusivos.
-</p>
-
-<button onclick="goToNovels()">
-Entrar al Reino
-</button>
-
-</section>
-
-<!-- NOVELAS -->
-
-<section id="novelas">
-
-<h2 class="sectionTitle">
-NOVELAS
-</h2>
-
-<div class="card">
-
-<img src="fondos/FONDO1.jpg">
-
-<div class="cardContent">
-
-<h3>
-Kingdom Archives
-</h3>
-
-<p>
-Una novela visual medieval donde el destino del reino cambiará dependiendo de las decisiones del jugador.
-</p>
-
-<button onclick="openVIP()">
-Desbloquear Novela
-</button>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- LOGIN -->
-
-<section id="vip">
-
-<div class="loginBox">
-
-<h2>
-ACCESO VIP
-</h2>
-
-<p>
-Introduce el código Patreon para desbloquear la novela visual.
-</p>
-
-<input
-type="password"
-id="codeInput"
-placeholder="Código de acceso"
->
-
-<button onclick="checkCode()">
-Entrar
-</button>
-
-<div id="message"></div>
-
-</div>
-
-</section>
-
-<!-- CONTACTO -->
-
-<section id="contacto">
-
-<h2 class="sectionTitle">
-CONTACTO
-</h2>
-
-<div class="contact">
-
-<p>
-📜 Patreon: Tu Patreon
-</p>
-
-<p>
-🎮 Discord: Tu Discord
-</p>
-
-<p>
-📧 Email: tuemail@ejemplo.com
-</p>
-
-</div>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-Retro RPG VN Portal • Kingdom Archives
-</footer>
-
-<script>
-
-/* CODIGO VIP */
-
-const accessCode = "ASHEN2026";
-
-/* IR A NOVELAS */
-
-function goToNovels(){
-
-window.location.href = "#novelas";
-
-}
-
-/* ABRIR LOGIN */
-
-function openVIP(){
-
-document.getElementById("vip").style.display =
-"block";
-
-window.location.href = "#vip";
-
-}
-
-/* REVISAR CODIGO */
-
-function checkCode(){
-
-const input =
-document.getElementById("codeInput").value;
-
-if(input === accessCode){
-
-document.getElementById("message").style.color =
-"#7cff7c";
-
-document.getElementById("message").innerText =
-"ACCESO AUTORIZADO ⚔";
-
-/* ENTRAR A NOVELA */
-
-setTimeout(() => {
-
-window.location.href =
-"novela/capitulo1.html";
-
-}, 1200);
-
-}else{
-
-document.getElementById("message").style.color =
-"#ff7c7c";
-
-document.getElementById("message").innerText =
-"Código incorrecto";
-
-}
-
-}
-
-</script>
-
-</body>
-
-</html>
