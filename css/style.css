@@ -1,3 +1,207 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
 body{
-    background:#09060f;
+
+    background:#07050d;
+    color:white;
+
+    font-family:Georgia, serif;
+
+    min-height:100vh;
+}
+
+header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:25px 60px;
+
+    border-bottom:1px solid #5f4821;
+
+    background:#0d0915;
+}
+
+.logo h1{
+
+    color:#d6b16d;
+
+    letter-spacing:4px;
+}
+
+.logo p{
+
+    color:#999;
+}
+
+nav{
+
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.3s;
+}
+
+nav a:hover{
+
+    color:#d6b16d;
+}
+
+.hero{
+
+    height:80vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
+
+    background:
+    linear-gradient(
+    rgba(0,0,0,.65),
+    rgba(0,0,0,.75)
+    ),
+    url("https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=1600");
+
+    background-size:cover;
+
+    background-position:center;
+}
+
+.hero-content{
+
+    max-width:900px;
+}
+
+.hero h2{
+
+    font-size:4rem;
+
+    margin-bottom:20px;
+
+    color:#f0d08a;
+}
+
+.hero p{
+
+    font-size:1.3rem;
+
+    color:#d7d7d7;
+
+    margin-bottom:40px;
+}
+
+.btn-principal{
+
+    display:inline-block;
+
+    padding:18px 45px;
+
+    background:#b58a3a;
+
+    color:black;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    border-radius:10px;
+
+    transition:.3s;
+}
+
+.btn-principal:hover{
+
+    transform:scale(1.05);
+}
+
+.regiones{
+
+    padding:80px 10%;
+}
+
+.regiones h2{
+
+    text-align:center;
+
+    margin-bottom:50px;
+
+    color:#d6b16d;
+
+    font-size:2.5rem;
+}
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+}
+
+.card{
+
+    background:#120d1e;
+
+    border:1px solid #5f4821;
+
+    border-radius:15px;
+
+    padding:30px;
+
+    transition:.3s;
+}
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#d6b16d;
+}
+
+.card h3{
+
+    color:#f0d08a;
+
+    margin-bottom:15px;
+}
+
+.card p{
+
+    color:#bdbdbd;
+}
+
+.bloqueado{
+
+    opacity:.5;
+}
+
+footer{
+
+    text-align:center;
+
+    padding:40px;
+
+    border-top:1px solid #5f4821;
+
+    background:#0d0915;
 }
