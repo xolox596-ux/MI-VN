@@ -205,3 +205,89 @@ footer{
 
     background:#0d0915;
 }
+.mapa-wrapper{
+    position:relative;
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+}
+
+.mapa-img{
+    width:100%;
+    display:block;
+}
+
+.hotspot{
+    position:absolute;
+    cursor:pointer;
+    border-radius:50%;
+}
+
+.hotspot:hover{
+    box-shadow:0 0 20px gold;
+}
+
+/* Reino de Hielo */
+.hielo{
+    width:90px;
+    height:90px;
+    top:22%;
+    left:45%;
+}
+
+/* Amazonas */
+.amazonas{
+    width:90px;
+    height:90px;
+    top:48%;
+    left:20%;
+}
+
+/* Demonios */
+.demonios{
+    width:90px;
+    height:90px;
+    top:47%;
+    left:72%;
+}
+
+/* Reino Central */
+.central{
+    width:90px;
+    height:90px;
+    top:58%;
+    left:44%;
+}
+
+/* Orcos */
+.orcos{
+    width:90px;
+    height:90px;
+    top:82%;
+    left:18%;
+}
+
+/* Hombres Bestia */
+.bestias{
+    width:90px;
+    height:90px;
+    top:82%;
+    left:68%;
+}
+
+/* Territorios Ocultos */
+.ocultos{
+    width:120px;
+    height:120px;
+    top:84%;
+    left:43%;
+}
+
+#panel-region{
+    margin-top:20px;
+    padding:20px;
+    background:#111;
+    border:1px solid #a97c30;
+    color:white;
+    border-radius:10px;
+}
