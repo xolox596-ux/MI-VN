@@ -1,26 +1,225 @@
-<div class="mapa-wrapper">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapa de Aerdan</title>
 
-    <img
-        src="assets/maps/aerdan-map.png"
-        class="mapa-img"
-        alt="Mapa de Aerdan">
+<link rel="stylesheet" href="css/style.css">
 
-    <div class="hotspot hielo" onclick="mostrarRegion('hielo')"></div>
+<style>
 
-    <div class="hotspot amazonas" onclick="mostrarRegion('amazonas')"></div>
+body{
+    margin:0;
+    background:#0b0814;
+    color:white;
+    font-family:Georgia, serif;
+}
 
-    <div class="hotspot demonios" onclick="mostrarRegion('demonios')"></div>
+.titulo{
+    text-align:center;
+    padding:20px;
+    font-size:32px;
+}
 
-    <div class="hotspot central" onclick="mostrarRegion('centro')"></div>
+.contenedor{
+    max-width:1400px;
+    margin:auto;
+    padding:20px;
+}
 
-    <div class="hotspot orcos" onclick="mostrarRegion('orcos')"></div>
+.mapa-wrapper{
+    position:relative;
+}
 
-    <div class="hotspot bestias" onclick="mostrarRegion('bestias')"></div>
+.mapa-img{
+    width:100%;
+    display:block;
+    border:2px solid #b58b3b;
+}
 
-    <div class="hotspot ocultos" onclick="mostrarRegion('desconocido')"></div>
+.hotspot{
+    position:absolute;
+    cursor:pointer;
+    border-radius:50%;
+}
+
+.hotspot:hover{
+    box-shadow:0 0 20px gold;
+}
+
+/* Regiones */
+
+.hielo{
+    width:100px;
+    height:100px;
+    top:10%;
+    left:45%;
+}
+
+.amazonas{
+    width:100px;
+    height:100px;
+    top:45%;
+    left:18%;
+}
+
+.demonios{
+    width:100px;
+    height:100px;
+    top:42%;
+    left:72%;
+}
+
+.central{
+    width:100px;
+    height:100px;
+    top:55%;
+    left:45%;
+}
+
+.orcos{
+    width:100px;
+    height:100px;
+    top:78%;
+    left:20%;
+}
+
+.bestias{
+    width:100px;
+    height:100px;
+    top:78%;
+    left:68%;
+}
+
+.ocultos{
+    width:120px;
+    height:120px;
+    top:82%;
+    left:45%;
+}
+
+#panel{
+    margin-top:20px;
+    background:#111;
+    border:2px solid #b58b3b;
+    padding:20px;
+    border-radius:10px;
+}
+
+button{
+    background:#b58b3b;
+    color:black;
+    border:none;
+    padding:10px 20px;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1 class="titulo">Mapa de Aerdan</h1>
+
+<div class="contenedor">
+
+    <div class="mapa-wrapper">
+
+        <img src="assets/maps/aerdan-map.png"
+             class="mapa-img"
+             alt="Mapa">
+
+        <div class="hotspot hielo"
+             onclick="mostrarRegion('hielo')"></div>
+
+        <div class="hotspot amazonas"
+             onclick="mostrarRegion('amazonas')"></div>
+
+        <div class="hotspot demonios"
+             onclick="mostrarRegion('demonios')"></div>
+
+        <div class="hotspot central"
+             onclick="mostrarRegion('central')"></div>
+
+        <div class="hotspot orcos"
+             onclick="mostrarRegion('orcos')"></div>
+
+        <div class="hotspot bestias"
+             onclick="mostrarRegion('bestias')"></div>
+
+        <div class="hotspot ocultos"
+             onclick="mostrarRegion('ocultos')"></div>
+
+    </div>
+
+    <div id="panel">
+
+        <h2>Selecciona una región</h2>
+
+        <p>
+            Haz clic sobre una región del mapa para ver información.
+        </p>
+
+    </div>
 
 </div>
 
-<div id="panel-region">
-    Selecciona una región del mapa.
-</div>
+<script>
+
+function mostrarRegion(region){
+
+    const panel = document.getElementById("panel");
+
+    const datos = {
+
+        hielo:{
+            nombre:"Reino de Hielo",
+            texto:"Tierras congeladas donde habitan los pueblos del norte."
+        },
+
+        amazonas:{
+            nombre:"Tribu Amazona",
+            texto:"Guerreras salvajes que dominan la selva."
+        },
+
+        demonios:{
+            nombre:"Dominio Demoníaco",
+            texto:"Territorio gobernado por la Reina Súcubo."
+        },
+
+        central:{
+            nombre:"Reino Central",
+            texto:"Centro político y comercial de Aerdan."
+        },
+
+        orcos:{
+            nombre:"Clanes Orcos",
+            texto:"Montañas y fortalezas de los clanes guerreros."
+        },
+
+        bestias:{
+            nombre:"Hombres Bestia",
+            texto:"Felinos, cazadores y tribus nómadas."
+        },
+
+        ocultos:{
+            nombre:"Territorios Ocultos",
+            texto:"Regiones aún cubiertas por la niebla."
+        }
+
+    };
+
+    panel.innerHTML = `
+        <h2>${datos[region].nombre}</h2>
+        <p>${datos[region].texto}</p>
+        <button>Entrar</button>
+    `;
+}
+
+</script>
+
+</body>
+</html>
